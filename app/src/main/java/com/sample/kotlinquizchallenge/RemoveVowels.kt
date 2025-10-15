@@ -13,6 +13,12 @@ package com.sample.kotlinquizchallenge
 * "Kotlin Programming" → "Ktln Prgrmmng"
 * */
 
-fun main() {
+fun removeVowels(input: String): String {
+    val vowels = setOf('a', 'e', 'i', 'o', 'u')
+    return input.filter { it.lowercaseChar() !in vowels }
+}
 
+fun main() {
+    println("\"Hello World\" → \"${removeVowels("Hello World")}\"")
+    println("\"Kotlin Programming\" → \"${removeVowels("Kotlin Programming")}\"")
 }
