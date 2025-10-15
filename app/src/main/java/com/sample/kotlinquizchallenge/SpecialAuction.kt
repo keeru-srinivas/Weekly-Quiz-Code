@@ -15,6 +15,19 @@ package com.sample.kotlinquizchallenge
 * 75 → 75 (accepted)
 * */
 
-fun main() {
+var currentBid: Int? = null   // keeps track of the highest bid so far
 
+fun placeBid(newBid: Int): Int? {
+    return if (currentBid == null || newBid > currentBid!!) {
+        currentBid = newBid     // update the current highest bid
+        currentBid              // return the accepted bid
+    } else {
+        null                    // reject if not higher
+    }
+}
+
+fun main() {
+    println("50 → ${placeBid(50)}")  // first bid (accepted)
+    println("30 → ${placeBid(30)}")  // lower bid (rejected → null)
+    println("75 → ${placeBid(75)}")  // higher bid (accepted)
 }
