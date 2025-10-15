@@ -16,6 +16,19 @@ package com.sample.kotlinquizchallenge
 *
 * */
 
-fun main() {
+fun calculateTicketPrince(age: Int, isMatinee: Boolean): Int {
+    return when{
+        age<13 -> if (isMatinee) 6 else 8
+        age in 13..64 -> if (isMatinee) 10 else 15
+        age>=65 -> if (isMatinee) 8 else 12
+        else -> 0
 
+    }
 }
+
+fun main(){
+    println("25, false → ${calculateTicketPrince(25, false)}")
+    println("70, true → ${calculateTicketPrince(70, true)}")
+    println("8, false → ${calculateTicketPrince(8, false)}")
+}
+
