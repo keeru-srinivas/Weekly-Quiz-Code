@@ -12,24 +12,24 @@ package com.sample.kotlinquizchallenge
 * 9 → 2
 * 529 → 4
 * 32 → 0 (no gap surrounded by ones)
-* */
+*/
 
-fun findBinaryGap(n:Int): Int {
-    val binary = Integer.toBinaryString(n)
+fun findBinaryGap(n: Int): Int {
+    val binary = Integer.toBinaryString(n) // convert number to binary string
     var maxGap = 0
     var currentGap = 0
     var counting = false
 
-    for (char in binary){
-        when (char){
-            '1'-> {
+    for (char in binary) {
+        when (char) {
+            '1' -> {
                 if (counting) {
                     maxGap = maxOf(maxGap, currentGap)
                 }
                 counting = true
                 currentGap = 0
             }
-            '0'-> {
+            '0' -> {
                 if (counting) {
                     currentGap++
                 }
@@ -42,7 +42,6 @@ fun findBinaryGap(n:Int): Int {
 fun main() {
     println("9 -> ${findBinaryGap(9)}")
     println("529 -> ${findBinaryGap(529)}")
-    println("32 → ${findBinaryGap(32)}")
+    println("32 -> ${findBinaryGap(32)}")
+    println("67777 -> ${findBinaryGap(67777)}")
 }
-
-

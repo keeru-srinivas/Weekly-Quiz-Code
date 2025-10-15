@@ -6,10 +6,27 @@ package com.sample.kotlinquizchallenge
 *
 * Example
 * -> 0 -> No Notifications
-* -> 3-99 -> You have 3 Notifications
+* -> 1-99 -> You have 3 Notifications
 * -> 100+ -> You have Notifications 99+
 * */
 
-fun main() {
+fun getNotificationSummary(count: Int): String{
+    return when {
+        count == 0 -> "No Notifications"
+        count in 1..99 -> "You have $count Notification ${if(count > 1) "s" else ""}"
+        else -> "You have 99+ Notifications"
+    }
+}
+
+fun main(){
+    print("Enter the number of notifications: ")
+    val input = readLine()
+    val count = input?.toIntOrNull()
+    if (count == null|| count <0){
+        println("Invalid input")
+    }else{
+        val summary = getNotificationSummary(count)
+        println(summary)
+    }
 
 }
